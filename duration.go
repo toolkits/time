@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func HumanDuration(now, before int64) string {
+func HumanDurationInt64(now, before int64) string {
 	d := now - before
 	if d <= 60 {
 		return "just now"
@@ -31,4 +31,8 @@ func HumanDuration(now, before int64) string {
 	}
 
 	return fmt.Sprintf("%d days ago", d/3600/24)
+}
+
+func HumanDurationInt(now, before int) string {
+	return HumanDurationInt64(int64(now), int64(before))
 }
